@@ -94,7 +94,7 @@ st.text("")
 st.text("")
 
 st.sidebar.header('Billpay US - Biller Finder')
-search = st.sidebar.text_input('Seach for a Biller')
+search = st.sidebar.text_input('Seach for a Biller',help='Press "Enter" to apply changes')
 
 classes = ['Homeowners Association',
  'Rental Properties',
