@@ -93,7 +93,9 @@ st.image("https://arcus-website-s3-assets.s3.amazonaws.com/content/2022/03/02/cc
 st.text("")
 st.text("")
 
-st.sidebar.header('Billpay US - Biller Finder')
+st.sidebar.header('Biller Finder')
+st.sidebar.subheader('Billpay US')
+
 search = st.sidebar.text_input('Seach for a Biller',help='Press "Enter" to apply changes')
 
 classes = ['Homeowners Association',
