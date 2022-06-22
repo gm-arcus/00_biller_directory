@@ -110,7 +110,6 @@ classes = ['Homeowners Association',
  'Financial Services']
 
 selected_classes = st.sidebar.multiselect('Select biller class:',options=classes,default=classes,help='You can select multiple or only one biller class.')
-click = st.sidebar.button('Search')
 
 if not search:
   st.warning('Use the text box to look for specific billers')
@@ -119,6 +118,7 @@ if not search:
 
 billers = api_x_request('GET','/biller_directory',search_for=search)
 billers = billers['rpps_billers']
+
 for biller in billers:
   name = biller['name']
   if biller["biller_class"] in selected_classes:
