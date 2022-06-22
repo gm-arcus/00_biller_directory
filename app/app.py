@@ -96,7 +96,7 @@ st.text("")
 st.sidebar.header('Billpay US - Biller Finder')
 search = st.sidebar.text_input('Seach for a Biller')
 
-classes = {'Homeowners Association',
+classes = ['Homeowners Association',
  'Rental Properties',
  'Other',
  'Personal Banking (checking, savings, etc.)',
@@ -107,7 +107,7 @@ classes = {'Homeowners Association',
  'Insurance',
  'Club / Membership',
  'School / Car / Bank Loan & Finance',
- 'Financial Services'}
+ 'Financial Services']
 
 selected_classes = st.sidebar.multiselect('Select biller class:',options=classes,default=classes,help='You can select multiple or only one biller class.')
 click = st.sidebar.button('Search')
@@ -115,36 +115,29 @@ click = st.sidebar.button('Search')
 if not search:
   st.warning('Use the text box to look for specific billers')
 
-if click:
-  billers = api_x_request('GET','/biller_directory',search_for=search)
-  billers = billers['rpps_billers']
+#if click:
 
-  for biller in billers:
-    name = biller['name']
-    if biller["biller_class"] in selected_classes:
-      st.write(f'### {name}')
-      st.caption(f'ID: {biller["id"]}')
-
-      col1,col2 = st.columns(2)
-      with col1:
-        st.write(f'Class: {biller["biller_class"]}')
-
-      with col2:
-        st.write(f'Type: {biller["biller_type"]}')
-
-      mask_df = pd.DataFrame(biller['masks'])
-
-      with st.expander('See available mask formats'):
-        mask_df
-
-        st.download_button(
-          label=f"Download {name} mask data ",
-          data=convert_df(mask_df),
-          file_name=f'{name}_mask_data.csv',
-          mime='text/csv')
-
-      '---'
-
+billers = api_x_request('GET','/biller_directory',search_for=search)
+billers = billers['rpps_billers']
+for biller in billers:
+  name = biller['name']
+  if biller["biller_class"] in selected_classes:
+    st.write(f'### {name}')
+    st.caption(f'ID: {biller["id"]}')
+    col1,col2 = st.columns(2)
+    with col1:
+      st.write(f'Class: {biller["biller_class"]}')
+    with col2:
+      st.write(f'Type: {biller["biller_type"]}')
+    mask_df = pd.DataFrame(biller['masks'])
+    with st.expander('See available mask formats'):
+      mask_df
+      st.download_button(
+        label=f"Download {name} mask data ",
+        data=convert_df(mask_df),
+        file_name=f'{name}_mask_data.csv',
+        mime='text/csv')
+    '---'
 
 st.sidebar.info('''
 Read the documentation: 
