@@ -99,6 +99,11 @@ st.sidebar.subheader('Billpay US')
 search = st.sidebar.text_input('Seach for a Biller',help='Press "Enter" to apply changes')
 
 classes = ['Homeowners Association',
+ 'Cable',
+ 'Municipality',
+ 'Sanitation',
+ 'Auto Finance',
+ 'DSL - ISP',
  'Rental Properties',
  'Other',
  'Personal Banking (checking, savings, etc.)',
