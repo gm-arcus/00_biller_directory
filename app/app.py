@@ -121,6 +121,9 @@ if not search:
 billers = api_x_request('GET','/biller_directory',search_for=search)
 billers = billers['rpps_billers']
 
+if len(billers) == 0:
+  st.warning('🔎 No billers where found for you search')
+
 for biller in billers:
   name = biller['name']
   if biller["biller_class"] in selected_classes:
