@@ -111,8 +111,7 @@ classes = {'Homeowners Association',
 
 selected_classes = st.sidebar.multiselect('Select biller class:',options=classes,default=classes,help='You can select multiple or only one biller class.')
 #click = st.sidebar.button('Search')
-
-
+click = True
 if not search:
   st.warning('Use the text box to look for specific billers')
 
