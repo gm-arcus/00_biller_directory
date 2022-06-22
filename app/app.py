@@ -124,7 +124,7 @@ billers = billers['rpps_billers']
 if len(billers) == 0:
   st.error('🔎  No billers where found for you search')
 
-for biller in billers:
+for i,biller in enumerate(billers):
   name = biller['name']
   if biller["biller_class"] in selected_classes:
     st.write(f'### {name}')
@@ -141,7 +141,8 @@ for biller in billers:
         label=f"Download {name} mask data ",
         data=convert_df(mask_df),
         file_name=f'{name}_mask_data.csv',
-        mime='text/csv')
+        mime='text/csv',
+        key=i)
     '---'
 
 st.sidebar.info('''
