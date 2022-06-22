@@ -110,7 +110,7 @@ classes = {'Homeowners Association',
  'Financial Services'}
 
 selected_classes = st.sidebar.multiselect('Select biller class:',options=classes,default=classes,help='You can select multiple or only one biller class.')
-click = st.sidebar.button('Search')
+#click = st.sidebar.button('Search')
 
 
 if not search:
@@ -146,7 +146,7 @@ if click:
 
       '---'
 
-
+click = st.sidebar.button('Search')
 st.sidebar.info('''
 Read the documentation: 
 [API Docs](https://docs.arcusfi.com/api-x/3.2/)
