@@ -1,4 +1,5 @@
 /venv
 venv
 
-.streamlit
+.streamlit/secrets.toml
+secrets.toml
