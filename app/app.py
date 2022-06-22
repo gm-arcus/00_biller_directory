@@ -109,7 +109,7 @@ classes = {'Homeowners Association',
  'School / Car / Bank Loan & Finance',
  'Financial Services'}
 
-selected_classes = st.sidebar.multiselect('select class',options=classes,default=classes,help='You can select multiple or only one biller class.')
+selected_classes = st.sidebar.multiselect('Select biller class:',options=classes,default=classes,help='You can select multiple or only one biller class.')
 click = st.sidebar.button('Search')
 
 
