@@ -123,7 +123,7 @@ if not search:
 
 #if click:
 
-billers = api_x_request('GET','/biller_directory',search_for=search)
+billers = api_x_request('GET','/data_billers',search_for=search)
 billers = billers['billers']
 
 if len(billers) == 0:
