@@ -124,7 +124,7 @@ if not search:
 #if click:
 
 billers = api_x_request('GET','/biller_directory',search_for=search)
-billers = billers['rpps_billers']
+billers = billers['billers']
 
 if len(billers) == 0:
   st.error('🔎  No billers where found for you search')
